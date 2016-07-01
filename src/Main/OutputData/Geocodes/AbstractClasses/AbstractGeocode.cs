@@ -34,6 +34,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
         public  string RecordId { get; set; }
         public DateTime Created { get; set; }
         public double Version { get; set; }
+        public Version VersionNew { get; set; }
 
         public string TransactionId { get; set; }
         public string Resultstring { get; set; }
@@ -202,6 +203,14 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
             : this()
         {
             Version = version;
+            VersionNew = new System.Version(Convert.ToString(version));
+        }
+
+        public AbstractGeocode(Version version)
+            : this()
+        {
+            VersionNew = version;
+            Version = Convert.ToDouble(version.Major + "." + version.Minor);
         }
 
         public AbstractGeocode()

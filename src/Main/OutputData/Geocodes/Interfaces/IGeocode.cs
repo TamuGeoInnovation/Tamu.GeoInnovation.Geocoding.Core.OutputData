@@ -34,6 +34,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
         string RecordId { get; set; }
         DateTime Created { get; set; }
         double Version { get; set; }
+        Version VersionNew { get; set; }
 
         string TransactionId { get; set; }
         string Resultstring { get; set; }
