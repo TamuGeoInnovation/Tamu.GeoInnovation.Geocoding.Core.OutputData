@@ -198,8 +198,8 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
         public Geocode(double version)
             : base(version) { }
 
-        public Geocode(Version version)
-            : base(version) { }
+        public Geocode(Version versionNew)
+            : base(versionNew) { }
 
 
 
