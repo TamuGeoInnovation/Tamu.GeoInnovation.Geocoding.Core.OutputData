@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -66,12 +67,20 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
         public List<IGeocode> GetValidGeocodes()
         {
             List<IGeocode> ret = new List<IGeocode>();
-            foreach (IGeocode g in Geocodes)
+            try
             {
-                if (g.Valid)
-                {
-                    ret.Add(g);
-                }
+                foreach (IGeocode g in Geocodes)
+            {
+               
+                    if (g.Valid)
+                    {
+                        ret.Add(g);
+                    }                
+            }
+            }
+            catch (Exception e)
+            {
+                throw new Exception("BOO in getValidGeocodes " + e.InnerException + " and msg: " + e.Message + "and blah is: ");
             }
             return ret;
         }
