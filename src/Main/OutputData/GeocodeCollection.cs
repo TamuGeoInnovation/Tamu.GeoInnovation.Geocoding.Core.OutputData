@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace USC.GISResearchLab.Geocoding.Core.OutputData
@@ -15,8 +16,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
         {
             Geocodes = new List<IGeocode>();
         }
-       
-
+  
         public override string ToString()
         {
             return ToString(false);
@@ -67,22 +67,24 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
         public List<IGeocode> GetValidGeocodes()
         {
             List<IGeocode> ret = new List<IGeocode>();
+            int i = 0;
             try
             {
-                foreach (IGeocode g in Geocodes)
-            {
                
-                    if (g.Valid)
+                foreach (IGeocode g in Geocodes)
+                {
+                    if (g.Valid && g != null)
                     {
                         ret.Add(g);
-                    }                
-            }
+                    }
+                    i++;
+                }
             }
             catch (Exception e)
             {
-                throw new Exception("BOO in getValidGeocodes " + e.InnerException + " and msg: " + e.Message + "and blah is: ");
+                throw new Exception("BOO in getValidGeocodes " + e.InnerException + " and msg: " + e.Message + "and record is: " + Convert.ToString(i) + "and value1 is: " + Geocodes[i-1].ToString() + "and value2 is: " + Geocodes[i].ToString() + "and value2 is: " + Geocodes[i + 1].ToString());
             }
             return ret;
-        }
+        }        
     }
 }
