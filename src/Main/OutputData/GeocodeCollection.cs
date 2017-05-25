@@ -69,14 +69,16 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
             List<IGeocode> ret = new List<IGeocode>();
             int i = 0;
             try
-            {
-               
+            {                
                 foreach (IGeocode g in Geocodes)
                 {
-                    if (g.Valid && g != null)
+                    if (!object.ReferenceEquals(null, g))
                     {
-                        ret.Add(g);
-                    }
+                        if (g.Valid)
+                        {
+                            ret.Add(g);
+                        }
+                    }                    
                     i++;
                 }
             }
