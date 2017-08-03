@@ -71,6 +71,8 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
 
         GeocodeQualityType GeocodeQualityType { get; set; }
 
+        string MicroMatchStatus { get; set; }
+
         string NAACCRGISCoordinateQualityCode { get; set; }
         string NAACCRGISCoordinateQualityName { get; set; }
         NAACCRGISCoordinateQualityType NAACCRGISCoordinateQualityType { get; set; }

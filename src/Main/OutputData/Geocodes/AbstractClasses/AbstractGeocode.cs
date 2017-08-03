@@ -71,6 +71,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
 
         public GeocodeQualityType GeocodeQualityType { get; set; }
 
+        public string MicroMatchStatus { get; set; }
         public string NAACCRGISCoordinateQualityCode { get; set; }
         public string NAACCRGISCoordinateQualityName { get; set; }
         public NAACCRGISCoordinateQualityType NAACCRGISCoordinateQualityType { get; set; }
@@ -237,6 +238,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
             ErrorMessage = "";
 
             GeocodeQualityType = GeocodeQualityType.Unmatchable;
+            MicroMatchStatus = "";
             FM_ResultType = FeatureMatchingResultType.Unmatchable;
             InterpolationSubType = InterpolationSubType.NotAttempted;
             InterpolationType = InterpolationType.NotAttempted;
