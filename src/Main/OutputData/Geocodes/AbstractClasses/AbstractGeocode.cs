@@ -610,6 +610,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
                 }
 
                 string gml = "";
+                string wkt = "";
                 int srid = 0;
                 if (MatchedFeature != null && MatchedFeature.MatchedReferenceFeature != null)
                 {
@@ -622,7 +623,9 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
                                 if (options.ShouldOutputReferenceFeatureGeometry)
                                 {
                                     srid = MatchedFeature.MatchedReferenceFeature.StreetAddressableGeographicFeature.Geometry.SRID;
-                                    gml = MatchedFeature.MatchedReferenceFeature.StreetAddressableGeographicFeature.Geometry.SqlGeometry.AsGml().Value;
+                                    //BUG:ZI140 Switching to using WKT here for simplicity and functionality
+                                    wkt = MatchedFeature.MatchedReferenceFeature.StreetAddressableGeographicFeature.Geometry.SqlGeometry.ToString();
+                                    //gml = MatchedFeature.MatchedReferenceFeature.StreetAddressableGeographicFeature.Geometry.SqlGeometry.AsGml().Value;
                                 }
                             }
                         }
@@ -634,11 +637,15 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
 
                 if (String.Compare(separator, ",", true) == 0)
                 {
-                    sb.Append("\"" + StringUtils.EscapeChar(gml.Replace(separator, ";"), "\"", StringUtils.EsacpeCharAction.repeat) + "\"").Append(separator); //121
+                    //BUG:ZI140 Switching to using WKT here for simplicity and functionality
+                    //sb.Append("\"" + StringUtils.EscapeChar(gml.Replace(separator, ";"), "\"", StringUtils.EsacpeCharAction.repeat) + "\"").Append(separator); //121
+                    sb.Append("\"" + StringUtils.EscapeChar(wkt.Replace(separator, ";"), "\"", StringUtils.EsacpeCharAction.repeat) + "\"").Append(separator); //121
                 }
                 else
                 {
-                    sb.Append("\"" + StringUtils.EscapeChar(gml, "\"", StringUtils.EsacpeCharAction.repeat) + "\"").Append(separator); //121
+                    //BUG:ZI140 Switching to using WKT here for simplicity and functionality
+                    //sb.Append("\"" + StringUtils.EscapeChar(gml, "\"", StringUtils.EsacpeCharAction.repeat) + "\"").Append(separator); //121
+                    sb.Append("\"" + StringUtils.EscapeChar(wkt, "\"", StringUtils.EsacpeCharAction.repeat) + "\"").Append(separator); //121
                 }
 
                 sb.Append("\"" + StringUtils.EscapeChar(SourceType, "\"", StringUtils.EsacpeCharAction.repeat) + "\"").Append(separator); //122
