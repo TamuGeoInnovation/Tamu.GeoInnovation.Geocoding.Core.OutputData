@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Xml.Serialization;
 using TAMU.GeoInnovation.PointIntersectors.Census.OutputData.CensusRecords;
 using USC.GISResearchLab.Census.Core.Configurations.ServerConfigurations;
@@ -8,11 +7,7 @@ using USC.GISResearchLab.Common.Addresses;
 using USC.GISResearchLab.Common.Core.Geocoders.FeatureMatching;
 using USC.GISResearchLab.Common.Core.Geocoders.GeocodingQueries;
 using USC.GISResearchLab.Common.Core.Geocoders.GeocodingQueries.Options;
-using USC.GISResearchLab.Common.Geographics.Units;
 using USC.GISResearchLab.Common.Geometries;
-using USC.GISResearchLab.Common.Geometries.Points;
-using USC.GISResearchLab.Common.Geometries.Polygons;
-using USC.GISResearchLab.Common.Utils.Strings;
 using USC.GISResearchLab.Core.WebServices.ResultCodes;
 using USC.GISResearchLab.Geocoding.Core.Algorithms.FeatureInterpolationMethods;
 using USC.GISResearchLab.Geocoding.Core.Algorithms.FeatureMatchingMethods;
@@ -21,7 +16,6 @@ using USC.GISResearchLab.Geocoding.Core.Metadata;
 using USC.GISResearchLab.Geocoding.Core.Metadata.FeatureMatchingResults;
 using USC.GISResearchLab.Geocoding.Core.Metadata.Qualities;
 using USC.GISResearchLab.Geocoding.Core.OutputData.Error;
-using USC.GISResearchLab.Geocoding.Core.Utils.Qualities;
 
 namespace USC.GISResearchLab.Geocoding.Core.OutputData
 {

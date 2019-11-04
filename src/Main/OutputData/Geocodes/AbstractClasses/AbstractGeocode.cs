@@ -11,7 +11,6 @@ using USC.GISResearchLab.Common.Core.Geocoders.GeocodingQueries.Options;
 using USC.GISResearchLab.Common.Geographics.Units;
 using USC.GISResearchLab.Common.Geometries;
 using USC.GISResearchLab.Common.Geometries.Points;
-using USC.GISResearchLab.Common.Geometries.Polygons;
 using USC.GISResearchLab.Common.Utils.Strings;
 using USC.GISResearchLab.Core.WebServices.ResultCodes;
 using USC.GISResearchLab.Geocoding.Core.Algorithms.FeatureInterpolationMethods;
@@ -21,7 +20,6 @@ using USC.GISResearchLab.Geocoding.Core.Metadata;
 using USC.GISResearchLab.Geocoding.Core.Metadata.FeatureMatchingResults;
 using USC.GISResearchLab.Geocoding.Core.Metadata.Qualities;
 using USC.GISResearchLab.Geocoding.Core.OutputData.Error;
-using USC.GISResearchLab.Geocoding.Core.Utils.Qualities;
 
 namespace USC.GISResearchLab.Geocoding.Core.OutputData
 {
@@ -31,7 +29,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
         #region Properties
 
         public string GeocoderName { get; set; }
-        public  string RecordId { get; set; }
+        public string RecordId { get; set; }
         public DateTime Created { get; set; }
         public double Version { get; set; }
         public Version VersionNew { get; set; }
@@ -42,7 +40,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
         public bool Attempted { get; set; }
         public bool Valid { get; set; }
         public bool PreParsed { get; set; }
-        
+
         public string SourceType { get; set; }
         public string SourceVintage { get; set; }
         public string MethodType { get; set; }
@@ -103,7 +101,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
         public List<MatchedFeature> MatchedFeatures { get; set; }
         public GeocodingQuery GeocodingQuery { get; set; }
 
-        public List<CensusOutputRecord> CensusRecords {get;set;}
+        public List<CensusOutputRecord> CensusRecords { get; set; }
         public CensusYear CensusYear { get; set; }
         public double CensusTimeTaken { get; set; }
         public string CensusStateFips { get; set; }
@@ -130,11 +128,11 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
         public double CensusCbsaFipsTimeTaken { get; set; }
         public double CensusCbsaMicroTimeTaken { get; set; }
 
-        public  bool CensusExceptionOccured { get; set; }
+        public bool CensusExceptionOccured { get; set; }
         public string CensusExceptionMessage { get; set; }
         public Exception CensusException { get; set; }
 
-        
+
         public bool MatchScoreSet { get; set; }
         public double MatchScore { get; set; }
 
@@ -216,7 +214,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
 
         public AbstractGeocode()
         {
-           
+
             Statistics = new GeocodeStatistics();
             GeocodedError = new GeocodedError();
             QueryStatusCodes = QueryStatusCodes.Unknown;
@@ -257,7 +255,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
             NAACCRCensusTractCertaintyType = NAACCRCensusTractCertaintyType.Unknown;
         }
 
-       
+
 
         public void SetQueryStatusCode(int queryStatusCodeValue)
         {
@@ -291,7 +289,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
                 MatchedFeature = new MatchedFeature();
             }
 
-            if (!String.IsNullOrEmpty(matchType ))
+            if (!String.IsNullOrEmpty(matchType))
             {
                 string[] parts = null;
                 if (matchType.IndexOf(',') >= 0)
@@ -597,7 +595,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
                 sb.Append("\"" + StringUtils.EscapeChar(address.ZIPPlus3, "\"", StringUtils.EsacpeCharAction.repeat) + "\"").Append(separator); //115
                 sb.Append("\"" + StringUtils.EscapeChar(address.ZIPPlus4, "\"", StringUtils.EsacpeCharAction.repeat) + "\"").Append(separator); //116
                 sb.Append("\"" + StringUtils.EscapeChar(address.ZIPPlus5, "\"", StringUtils.EsacpeCharAction.repeat) + "\"").Append(separator); //117
-                
+
                 if (MatchedFeature.MatchedReferenceFeature != null)
                 {
                     sb.Append("\"" + StringUtils.EscapeChar(MatchedFeature.MatchedReferenceFeature.StreetAddressableGeographicFeature.Geometry.Area.ToString(), "\"", StringUtils.EsacpeCharAction.repeat) + "\"").Append(separator); ; //118
@@ -655,7 +653,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
                 sb.Append("\"" + StringUtils.EscapeChar(MatchedFeature.SecondaryIdField, "\"", StringUtils.EsacpeCharAction.repeat) + "\"").Append(separator); //126
                 sb.Append("\"" + StringUtils.EscapeChar(MatchedFeature.SecondaryIdValue, "\"", StringUtils.EsacpeCharAction.repeat) + "\"").Append(separator); //127
 
-               
+
             }
 
             return sb.ToString();
@@ -666,7 +664,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
         public static string AsHeaderStringVerbose_V03_01(string separator, double version, BatchOptions options)
         {
             StringBuilder sb = new StringBuilder();
-            
+
             sb.Append("Latitude").Append(separator); //3
             sb.Append("Longitude").Append(separator);  //4
             sb.Append("NAACCRGISCoordinateQualityCode").Append(separator);  //5
@@ -686,7 +684,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
             sb.Append("TieHandlingStrategyType").Append(separator); //19
             sb.Append("FeatureMatchingSelectionMethod").Append(separator); //20
             sb.Append("FeatureMatchingSelectionMethodNotes").Append(separator); //21
-           
+
 
             if (options == null || options.OutputBookKeepingFieldMappings.Enabled)
             {

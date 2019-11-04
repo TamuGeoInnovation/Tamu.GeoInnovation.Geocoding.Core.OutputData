@@ -1,11 +1,10 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 
 namespace USC.GISResearchLab.Geocoding.Core.OutputData
 {
-    public class GeocodeCollection 
+    public class GeocodeCollection
     {
         #region Properties
         public List<IGeocode> Geocodes { get; set; }
@@ -16,7 +15,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
         {
             Geocodes = new List<IGeocode>();
         }
-  
+
         public override string ToString()
         {
             return ToString(false);
@@ -36,8 +35,8 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
                     }
 
                     ret.AppendFormat("[{0}]", Geocodes[i].ToString());
-                    
-                    if (i < Geocodes.Count -1)
+
+                    if (i < Geocodes.Count - 1)
                     {
                         ret.Append(",");
                     }
@@ -69,7 +68,7 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
             List<IGeocode> ret = new List<IGeocode>();
             int i = 0;
             try
-            {                
+            {
                 foreach (IGeocode g in Geocodes)
                 {
                     if (!object.ReferenceEquals(null, g))
@@ -78,15 +77,15 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
                         {
                             ret.Add(g);
                         }
-                    }                    
+                    }
                     i++;
                 }
             }
             catch (Exception e)
             {
-                throw new Exception("BOO in getValidGeocodes " + e.InnerException + " and msg: " + e.Message + "and record is: " + Convert.ToString(i) + "and value1 is: " + Geocodes[i-1].ToString() + "and value2 is: " + Geocodes[i].ToString() + "and value2 is: " + Geocodes[i + 1].ToString());
+                throw new Exception("BOO in getValidGeocodes " + e.InnerException + " and msg: " + e.Message + "and record is: " + Convert.ToString(i) + "and value1 is: " + Geocodes[i - 1].ToString() + "and value2 is: " + Geocodes[i].ToString() + "and value2 is: " + Geocodes[i + 1].ToString());
             }
             return ret;
-        }        
+        }
     }
 }
