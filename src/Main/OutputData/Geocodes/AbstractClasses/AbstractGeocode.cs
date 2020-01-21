@@ -69,7 +69,11 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
 
         public GeocodeQualityType GeocodeQualityType { get; set; }
 
+        // new in 4.03
         public string MicroMatchStatus { get; set; }
+        public string PenaltyCode { get; set; }
+        public string PenaltyCodeSummary { get; set; }
+
         public string NAACCRGISCoordinateQualityCode { get; set; }
         public string NAACCRGISCoordinateQualityName { get; set; }
         public NAACCRGISCoordinateQualityType NAACCRGISCoordinateQualityType { get; set; }
@@ -236,7 +240,14 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
             ErrorMessage = "";
 
             GeocodeQualityType = GeocodeQualityType.Unmatchable;
+
+
+            // new in 4.03
             MicroMatchStatus = "";
+            PenaltyCode = "";
+            PenaltyCodeSummary = "";
+
+
             FM_ResultType = FeatureMatchingResultType.Unmatchable;
             InterpolationSubType = InterpolationSubType.NotAttempted;
             InterpolationType = InterpolationType.NotAttempted;
@@ -254,7 +265,6 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
             NAACCRCensusTractCertaintyName = "";
             NAACCRCensusTractCertaintyType = NAACCRCensusTractCertaintyType.Unknown;
         }
-
 
 
         public void SetQueryStatusCode(int queryStatusCodeValue)
