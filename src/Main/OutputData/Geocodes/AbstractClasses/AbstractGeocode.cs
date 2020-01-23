@@ -71,8 +71,13 @@ namespace USC.GISResearchLab.Geocoding.Core.OutputData
 
         // new in 4.03
         public string MicroMatchStatus { get; set; }
+
+        // new in 4.04
         public string PenaltyCode { get; set; }
         public string PenaltyCodeSummary { get; set; }
+
+        // new in 4.05
+        public string GeoLocationID { get; set; }
 
         public string NAACCRGISCoordinateQualityCode { get; set; }
         public string NAACCRGISCoordinateQualityName { get; set; }
