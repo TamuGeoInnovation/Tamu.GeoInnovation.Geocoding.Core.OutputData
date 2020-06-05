@@ -150,9 +150,8 @@
       <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Common.Core.Geo.Geometries\Src\Main\Common.Core.Geo.Geometries.Dev.csproj">
-      <Project>{E8164C90-2753-46F3-937A-653039318563}</Project>
+      <Project>{e8164c90-2753-46f3-937a-653039318563}</Project>
       <Name>Common.Core.Geo.Geometries.Dev</Name>
-      <Private>False</Private>
     </ProjectReference>
     <ProjectReference Include="..\..\..\Common.Core.Geo.Units\Src\Main\Common.Core.Geo.Units.Dev.csproj">
       <Project>{5F42520E-2DDA-4B4A-AFE5-5F5E00E33D47}</Project>
